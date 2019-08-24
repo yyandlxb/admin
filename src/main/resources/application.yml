@@ -1,0 +1,24 @@
+server:
+  address: 0.0.0
+  port: 22000
+  tomcat:
+    remote-ip-header: X-Forwarded-For
+management:
+  server:
+    address: ${server.address}
+    port: -1
+    add-application-context-header: true
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/move_car?useSSL=false&characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: root
+    hikari:
+      maximum-pool-size: 50
+      minimum-idle: 5
+      connection-timeout: 10000
+  thymeleaf:
+    prefix: classpath:/views/
+    suffix: .html
+#  mvc:
+#    static-path-pattern: /static/**
